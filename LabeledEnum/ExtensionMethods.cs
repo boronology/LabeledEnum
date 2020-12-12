@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace LabeledEnum
 {
@@ -12,7 +13,8 @@ namespace LabeledEnum
         /// <returns></returns>
         public static string ToLabelString(this Enum e)
         {
-            return null;
+            var labelAttribute = e.GetType().GetField(e.ToString()).GetCustomAttributes(false).OfType<EnumLabelAttribute>().FirstOrDefault();
+            return labelAttribute?.Label;
         }
     }
 }

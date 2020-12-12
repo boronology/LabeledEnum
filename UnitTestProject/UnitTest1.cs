@@ -44,7 +44,7 @@ namespace UnitTestProject
         [InlineData(EnumWithAttribute.Rockhopper, ROCKHOPPER)]
         public void ToLabelStringTest(EnumWithAttribute argument, string expected)
         {
-            Assert.Same(expected, argument.ToLabelString());
+            Assert.Equal(expected, argument.ToLabelString());
         }
 
 
@@ -56,7 +56,7 @@ namespace UnitTestProject
         [InlineData(ROCKHOPPER, EnumWithAttribute.Rockhopper)]
         public void ParseTest(string argument, EnumWithAttribute expected)
         {
-            Assert.Same(expected, EnumLabel.Parse<EnumWithAttribute>(argument));
+            Assert.Equal(expected, EnumLabel.Parse<EnumWithAttribute>(argument));
         }
 
 
@@ -70,9 +70,9 @@ namespace UnitTestProject
         public void TryParseTest(string argument, EnumWithAttribute value, bool canParse)
         {
             bool isSuccess = EnumLabel.TryParse(argument, out EnumWithAttribute result);
-            Assert.Same(canParse, isSuccess);
+            Assert.Equal(canParse, isSuccess);
 
-            Assert.Same(value, result);
+            Assert.Equal(value, result);
         }
 
 
